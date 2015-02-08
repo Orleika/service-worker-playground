@@ -1,12 +1,21 @@
-console.log("pass");
 importScripts('serviceworker-cache-polyfill.js');
 
 var CACHE_NAME = 'service-worker-playground-v1',
   urlToCache = [
-    'images/white_eye.jpg',
-    'images/sparrow.jpg',
-    'images/lesser_panda.jpg',
-    'images/camellia.jpg'
+    '/index.html',
+    '/stylesheets/print.css',
+    '/stylesheets/pygment_trac.css',
+    '/stylesheets/stylesheet.css',
+    '/images/white_eye.jpg',
+    '/images/sparrow.jpg',
+    '/images/lesser_panda.jpg',
+    '/images/camellia.jpg',
+    '/images/body-bg.png',
+    '/images/highlight-bg.jpg',
+    '/images/hr.png',
+    '/images/octocat-icon.png',
+    '/images/octocat-icon.png',
+    '/images/zip-icon.png'
   ];
 
 self.addEventListener('install', function (event) {
@@ -18,12 +27,13 @@ self.addEventListener('install', function (event) {
   );
 });
 
-self.addEventListener('activate', function (event) {});
+// self.addEventListener('activate', function (event) {});
 
 self.addEventListener('fetch', function (event) {
   event.respondWith(
     caches.match(event.request)
     .then(function (response) {
+      console.log(response);
       if (response) {
         return response;
       }
