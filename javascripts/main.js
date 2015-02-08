@@ -1,1 +1,10 @@
-console.log('This would be the main JS file.');
+if ('serviceWorker' in navigator) {
+  navigator.serviceWorker.register('javascripts/myapp.js', {
+    scope: '/'
+  }).then(function (registration) {
+    console.log('ServiceWorker registration successful with scope: ', registration.scope);
+  }).catch(function (err) {
+    console.log('ServiceWorker registration failed: ', err);
+  });
+}
+
