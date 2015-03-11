@@ -19,7 +19,7 @@
     <div class="inner">
 
       <header>
-        <h1>Service-worker-playground</h1>
+        <h1>Service-worker-playground(This page already cached!)</h1>
         <h2>service worker</h2>
       </header>
 
@@ -41,15 +41,15 @@
         <h3>
           <a id="cache-images" class="anchor" href="#cache-images" aria-hidden="true">
             <span class="octicon octicon-link"></span>
-          </a>cache images</h3>
+          </a>cached images</h3>
 
         <p>
-          <img src="images/white_eye.jpg" alt="White eye">
-          <img src="images/sparrow.jpg" alt="Sparrow">
-          <img src="images/lesser_panda.jpg" alt="Lesser panda">
-          <img src="images/camellia.jpg" alt="Camellia">
+          <img src="images/koala.jpg" alt="White eye">
+          <img src="images/cat.jpg" alt="Sparrow">
+          <img src="images/kangaroo.jpg" alt="Lesser panda">
+          <img src="images/pengin.jpg" alt="Camellia">
         </p>
-        <a href="other.html">next garally...</a>
+        <a href="index.html">prev garally...</a>
       </section>
 
       <footer>
@@ -59,16 +59,6 @@
 
     </div>
   </div>
-  <script>
-    if ('serviceWorker' in navigator) {
-      navigator.serviceWorker.register('sw.js')
-        .then(function(registration) {
-          console.log('ServiceWorker registration successful with scope: ', registration.scope);
-        }).catch(function(err) {
-          console.log('ServiceWorker registration failed: ', err);
-        });
-    }
-  </script>
 </body>
 
 </html>
