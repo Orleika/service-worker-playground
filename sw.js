@@ -15,14 +15,12 @@ var CACHE_NAME = 'service-worker-playground-v1',
     '/images/hr.png',
     '/images/octocat-icon.png',
     '/images/octocat-icon.png',
-    '/images/zip-icon.png'
-  ],
-  otherPageCache = [
+    '/images/zip-icon.png',
     '/other.html',
     '/images/koala.jpg',
     '/images/cat.jpg',
     '/images/kangaroo.jpg',
-    '/images/pengin.jpg',
+    '/images/penguin.jpg',
   ];
 
 self.oninstall = function (event) {
@@ -34,14 +32,7 @@ self.oninstall = function (event) {
   );
 };
 
-self.onactivate = function (event) {
-  event.waitUntil(
-    caches.open(CACHE_NAME)
-    .then(function (cache) {
-      return cache.addAll(otherPageCache);
-    })
-  );
-};
+// self.onactivate = function (event) {};
 
 self.onfetch = function (event) {
   event.respondWith(
