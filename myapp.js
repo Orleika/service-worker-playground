@@ -1,4 +1,4 @@
-importScripts('serviceworker-cache-polyfill.js');
+importScripts('javascripts/serviceworker-cache-polyfill.js');
 
 var CACHE_NAME = 'service-worker-playground-v1',
   urlToCache = [
@@ -18,18 +18,18 @@ var CACHE_NAME = 'service-worker-playground-v1',
     '/images/zip-icon.png'
   ];
 
-self.addEventListener('install', function (event) {
+self.oninstall = function (event) {
   event.waitUntil(
     caches.open(CACHE_NAME)
     .then(function (cache) {
       return cache.addAll(urlToCache);
     })
   );
-});
+};
 
-// self.addEventListener('activate', function (event) {});
+// self.onactivate = function (event) {};
 
-self.addEventListener('fetch', function (event) {
+self.onfetch = function (event) {
   event.respondWith(
     caches.match(event.request)
     .then(function (response) {
@@ -40,4 +40,4 @@ self.addEventListener('fetch', function (event) {
       return fetch(event.request);
     })
   );
-});
+};
